@@ -2,7 +2,6 @@ require('dotenv').config()
 require('./db/connect')
 const express = require('express')
 const path = require('path')
-const hbs = require('hbs')
 const cookieParser = require('cookie-parser')
 const cors = require('cors');
 const app = express()
@@ -11,12 +10,7 @@ const app = express()
 const staticPath = path.join(__dirname, '../public')
 app.use(express.static(staticPath))
 
-//* tempate engine
-const templatePath = path.join(__dirname, '../template/views')
-const partialsPath = path.join(__dirname, '../template/partials')
-app.set('view engine', 'hbs')
-app.set('views', templatePath)
-hbs.registerPartials(partialsPath)
+//* tempate engine using REACT JS
 
 //* middleware
 app.use(express.json())

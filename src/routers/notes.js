@@ -161,8 +161,8 @@ router.get('/export-csv', async (req, res) => {
     }
 });
 
-const cronJob = new CronJob('*/15 * * * * *', async () => {
-// const cronJob = new CronJob('0 0 * * *', async () => {
+// const cronJob = new CronJob('*/15 * * * * *', async () => { // & After 15 sec
+const cronJob = new CronJob('0 0 * * *', async () => { //* After 24 hr
     const domainNames = await DomainName.find({});
     let data = ''
 
